@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doylfrwos3own"]
 
-[ext_resource type="Script" uid="uid://c5viqs38pd51p" path="res://scripts/Dodgeball.cs" id="1_6j3e4"]
+[ext_resource type="Script" uid="uid://d1p7qkk8imnrx" path="res://scripts/Dodgeball.gd" id="1_6j3e4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iw3lg"]
 

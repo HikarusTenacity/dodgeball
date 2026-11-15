@@ -32,7 +32,7 @@ public partial class Dodgeball : CharacterBody3D
 	private float _playerBias;
 	private MeshInstance3D _ballMesh;
 	private MeshInstance3D _ballVisual;
-
+	
 	public override void _Ready()
 	{
 		_player = GetTree().Root.GetNodeOrNull<Node3D>("Scene/Player");
