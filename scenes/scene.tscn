@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://dxkm8wdad5ff6"]
+
+[ext_resource type="Texture2D" uid="uid://besdha8hy2yc2" path="res://resources/north.png" id="1_4msxo"]
+[ext_resource type="PackedScene" uid="uid://dqev3htlwjmr3" path="res://scenes/player.tscn" id="1_s6dok"]
+[ext_resource type="PackedScene" uid="uid://doylfrwos3own" path="res://scenes/dodgeball.tscn" id="2_1kc1q"]
+[ext_resource type="Texture2D" uid="uid://cjs4ceybscxx0" path="res://resources/south.png" id="2_gjmho"]
+[ext_resource type="Texture2D" uid="uid://h78nu5lgmte" path="res://resources/east.png" id="2_t7and"]
+[ext_resource type="Texture2D" uid="uid://bg4ecph76gc4f" path="res://resources/west.png" id="3_t7and"]
+[ext_resource type="PackedScene" uid="uid://dkqw3qeqott20" path="res://scenes/enemy.tscn" id="7_ruw3y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw3lg"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrw2j"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4msxo"]
+size = Vector3(40, 40, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqloj"]
+albedo_texture = ExtResource("1_4msxo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ftgl"]
+material = SubResource("StandardMaterial3D_dqloj")
+size = Vector2(40, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrw2j"]
+size = Vector3(1, 40, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f71q"]
+albedo_texture = ExtResource("2_t7and")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5yiy0"]
+material = SubResource("StandardMaterial3D_0f71q")
+size = Vector2(40, 40)
+orientation = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fb3c"]
+size = Vector3(40, 40, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruw3y"]
+albedo_texture = ExtResource("2_gjmho")
+
+[sub_resource type="QuadMesh" id="QuadMesh_t7and"]
+material = SubResource("StandardMaterial3D_ruw3y")
+size = Vector2(40, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmtss"]
+size = Vector3(1, 40, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpwpp"]
+albedo_texture = ExtResource("3_t7and")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7182s"]
+material = SubResource("StandardMaterial3D_tpwpp")
+size = Vector2(40, 40)
+orientation = 0
+
+[node name="Scene" type="Node3D" unique_id=1953972147]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=856198361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+disable_mode = 1
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground" unique_id=2102176145]
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground" unique_id=797744375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, -0.017)
+mesh = SubResource("BoxMesh_lrw2j")
+
+[node name="Ceiling" type="StaticBody3D" parent="." unique_id=636692919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.5, 0)
+disable_mode = 1
+
+[node name="CeilingCollision" type="CollisionShape3D" parent="Ceiling" unique_id=1907358103]
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="CeilingMesh" type="MeshInstance3D" parent="Ceiling" unique_id=1969628176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0, -0.017)
+mesh = SubResource("BoxMesh_lrw2j")
+
+[node name="NorthWall" type="StaticBody3D" parent="." unique_id=837482715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -20)
+
+[node name="WallCollision" type="CollisionShape3D" parent="NorthWall" unique_id=1901137377]
+shape = SubResource("BoxShape3D_4msxo")
+
+[node name="WallMesh" type="MeshInstance3D" parent="NorthWall" unique_id=760308932]
+mesh = SubResource("QuadMesh_7ftgl")
+
+[node name="EastWall" type="StaticBody3D" parent="." unique_id=1166728665]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 20, 20, 0)
+
+[node name="WallCollision" type="CollisionShape3D" parent="EastWall" unique_id=754947189]
+shape = SubResource("BoxShape3D_lrw2j")
+
+[node name="WallMesh" type="MeshInstance3D" parent="EastWall" unique_id=1471662561]
+mesh = SubResource("QuadMesh_5yiy0")
+
+[node name="SouthWall" type="StaticBody3D" parent="." unique_id=1496623960]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 20, 20)
+
+[node name="WallCollision" type="CollisionShape3D" parent="SouthWall" unique_id=1025806576]
+shape = SubResource("BoxShape3D_5fb3c")
+
+[node name="WallMesh" type="MeshInstance3D" parent="SouthWall" unique_id=1277103176]
+mesh = SubResource("QuadMesh_t7and")
+
+[node name="WestWall" type="StaticBody3D" parent="." unique_id=598424058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 20, 0)
+
+[node name="WallCollision" type="CollisionShape3D" parent="WestWall" unique_id=2139803023]
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="WallMesh" type="MeshInstance3D" parent="WestWall" unique_id=834544462]
+mesh = SubResource("QuadMesh_7182s")
+
+[node name="Player" parent="." unique_id=545107275 instance=ExtResource("1_s6dok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.326614, 0)
+
+[node name="Dodgeball" parent="." unique_id=988758279 instance=ExtResource("2_1kc1q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4880409, 3.4953804, 12.884812)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1315233968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.90954, 0)
+light_energy = 10.0
+omni_range = 4096.0
+
+[node name="Enemy" parent="." unique_id=1058351668 instance=ExtResource("7_ruw3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1301346, 0)
+visible = false

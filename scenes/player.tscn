@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dqev3htlwjmr3"]
+
+[ext_resource type="Script" uid="uid://d183n7727w732" path="res://scripts/Player.cs" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bcx23pjgpd3qg" path="res://scripts/Camera.cs" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://cm6kftixr76y4" path="res://scripts/UIOverlay.cs" id="3_qhqgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw3lg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lrw2j"]
+
+[node name="Player" type="CharacterBody3D" unique_id=545107275]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1271815668]
+shape = SubResource("CapsuleShape3D_iw3lg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=306460548]
+mesh = SubResource("CapsuleMesh_lrw2j")
+
+[node name="Head" type="Node3D" parent="." unique_id=183914533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_qhqgy")
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=2006485929]
+
+[node name="UIOverlay" type="CanvasLayer" parent="." unique_id=1077336122]
+script = ExtResource("3_qhqgy")
+
+[node name="UIContainer" type="HBoxContainer" parent="UIOverlay" unique_id=1679187306]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatsLabel" type="Label" parent="UIOverlay/UIContainer" unique_id=1126381903]
+layout_mode = 2
